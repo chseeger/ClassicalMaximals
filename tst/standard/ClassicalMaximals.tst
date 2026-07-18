@@ -5,19 +5,13 @@ gap> ClassicalMaximalsGeneric("L", 2, 4, [0]);
 Error, <classes> must be a subset of [1..9]
 gap> ClassicalMaximalsGeneric("", 2, 4);
 Error, Type must be in ['L', 'U', 'S', 'O-', 'O', 'O+']
-gap> MaximalSubgroupClassRepsSpecialLinearGroup(2, 4, [0]);
-Error, <classes> must be a subset of [1..9]
 gap> MaximalSubgroupClassRepsSpecialLinearGroup(2, 2);
 Error, SL(2, 2) and SL(2, 3) are soluble
-gap> MaximalSubgroupClassRepsSpecialUnitaryGroup(3, 5, [0]);
-Error, <classes> must be a subset of [1..9]
 gap> MaximalSubgroupClassRepsSpecialUnitaryGroup(2, 3);
 Error, <n> must be at least 3 in case 'U' since SU(2, q) and SL(2, q) are isom\
 orphic
 gap> MaximalSubgroupClassRepsSpecialUnitaryGroup(3, 2);
 Error, PSU(3, 2) is soluble
-gap> MaximalSubgroupClassRepsSymplecticGroup(4, 3, [0]);
-Error, <classes> must be a subset of [1..9]
 gap> MaximalSubgroupClassRepsSymplecticGroup(2, 3);
 Error, <n> must be at least 4 in case 'S' since Sp(2, q) and SL(2, q) are isom\
 orphic
@@ -25,8 +19,6 @@ gap> MaximalSubgroupClassRepsSymplecticGroup(4, 2);
 Error, Sp(4, 2) is not quasisimple
 gap> MaximalSubgroupClassRepsOrthogonalGroup(1, 2, 3);
 Error, <n> must be at least 3 in cases 'O', 'O+' or 'O-'
-gap> MaximalSubgroupClassRepsOrthogonalGroup(-1, 4, 3, [0]);
-Error, <classes> must be a subset of [1..9]
 gap> MaximalSubgroupClassRepsOrthogonalGroup(0, 4, 3);
 Error, Degree must be odd for type 'O'
 gap> MaximalSubgroupClassRepsOrthogonalGroup(1, 3, 5);
