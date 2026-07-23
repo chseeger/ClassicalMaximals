@@ -3815,10 +3815,18 @@ function(epsilon, n, q, opts...)
             # number of conjugates according to [KL90] Proposition 4.4.15 (I)
             G := OrthogonalTensorProductStabilizerInOmega(epsilon, 1, -1, n1, n2, q);
             if q mod 4 = 3 and n1 mod 4 = 0 and n2 mod 4 = 2 then
-                Append(result, ConjugateSubgroupOmega(1, n, q, G, 4));
+                if all then
+                    Append(result, ConjugateSubgroupOmega(1, n, q, G, 4));
+                else
+                    Add(result, G);
+                fi;
             else
                 if n1 > 4 then
-                    Append(result, ConjugateSubgroupOmega(1, n, q, G, 2));
+                    if all then
+                        Append(result, ConjugateSubgroupOmega(1, n, q, G, 2));
+                    else
+                        Add(result, G);
+                    fi;
                 fi;
             fi;
             if n1 < n2 then  # error in magma
@@ -3986,6 +3994,7 @@ function(epsilon, n, q, opts...)
 
             m := primeDivs[1] ^ QuoInt(primeDivs[2], t);
 
+            # Magma also returns O^+(m,q) wr S_t for m = 4 and t > 2, contrary to [KL90] Table 3.5.E
             if m >= 6 then
 
                 # number of conjugates according to [KL90] Proposition 4.7.6 (I)
