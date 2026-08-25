@@ -12,9 +12,7 @@ gap> TestTensorProductStabilizerInSL(2, 3, 3);
 gap> TestTensorProductStabilizerInSL(2, 3, 4);
 gap> TestTensorProductStabilizerInSL(2, 3, 5);
 gap> TestTensorProductStabilizerInSL(2, 4, 3);
-#@if IsBound(CLASSICAL_MAXIMALS_RUN_BROKEN_TESTS)
-gap> TestTensorProductStabilizerInSL(3, 4, 2);  # see https://github.com/gap-packages/recog/issues/510
-#@fi
+gap> TestTensorProductStabilizerInSL(3, 4, 2);
 gap> TestTensorProductStabilizerInSL(3, 4, 3);
 
 #
@@ -65,18 +63,14 @@ gap> TestOrthogonalTensorProductStabilizerInOmega(-1, -1, 0, 4, 3, 5);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, 0, 4, 3, 5);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, 1, 4, 6, 3);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, -1, 4, 6, 3);
-#@if IsBound(CLASSICAL_MAXIMALS_RUN_BROKEN_TESTS)
-gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, -1, 6, 4, 3);  # Error, the recognition described by this recognition node has failed!
-#@fi
+gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, -1, 6, 4, 3);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, -1, -1, 4, 6, 3);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, 1, 4, 6, 5);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, -1, 4, 6, 5);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, -1, 6, 4, 5);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, -1, -1, 4, 6, 5);
 gap> TestOrthogonalTensorProductStabilizerInOmega(1, 1, 1, 6, 8, 3);
-#@if IsBound(CLASSICAL_MAXIMALS_RUN_BROKEN_TESTS)
-gap> TestOrthogonalTensorProductStabilizerInOmega(1, -1, -1, 6, 10, 3);  # Error, the recognition described by this recognition node has failed!
-#@fi
+gap> TestOrthogonalTensorProductStabilizerInOmega(1, -1, -1, 6, 10, 3);
 
 # Test error handling
 gap> OrthogonalTensorProductStabilizerInOmega(1, 1, 1, 4, 6, 2);

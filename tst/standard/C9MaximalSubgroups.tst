@@ -203,22 +203,16 @@ gap> TestC9SubgroupsOrthogonalGroupGeneric(0,5,7, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(1,6,11, rec(novelties:=true, all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,13, rec(novelties:=true, all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,31, rec(novelties:=true, all:=false));
-#@if IsBound(CLASSICAL_MAXIMALS_RUN_BROKEN_TESTS)
-gap> TestC9SubgroupsOrthogonalGroupGeneric(1,6,11, rec(all:=false));  # see https://github.com/gap-packages/recog/issues/510
-gap> TestC9SubgroupsOrthogonalGroupGeneric(1,6,29, rec(all:=false));  # see https://github.com/gap-packages/recog/issues/510
-#@fi
+gap> TestC9SubgroupsOrthogonalGroupGeneric(1,6,11, rec(all:=false));
+gap> TestC9SubgroupsOrthogonalGroupGeneric(1,6,29, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(1,6,7, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(1,6,13, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,13, rec(all:=false));
-#@if IsBound(CLASSICAL_MAXIMALS_RUN_BROKEN_TESTS)
-gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,19, rec(all:=false));  # see https://github.com/gap-packages/recog/issues/510
-#@fi
+gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,19, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,11, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,17, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,29, rec(all:=false));
-#@if IsBound(CLASSICAL_MAXIMALS_RUN_BROKEN_TESTS)
-gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,3, rec(all:=false));  # see https://github.com/gap-packages/recog/issues/510
-#@fi
+gap> TestC9SubgroupsOrthogonalGroupGeneric(-1,6,3, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(0,7,3, rec(novelties:=true, all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(0,7,3, rec(all:=false));
 gap> TestC9SubgroupsOrthogonalGroupGeneric(1,8,5, rec(novelties:=true, all:=false));
