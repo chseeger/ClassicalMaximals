@@ -25,9 +25,9 @@ function(type, n, q, opts...)
     if Length(opts) = 0 then
         opts := rec(classes := [1..9]);
     elif Length(opts) = 1 and IsList(opts[1]) then
-        opts := rec(classes := opts[1]);
+        opts := rec(classes := ShallowCopy(opts[1]));
     elif Length(opts) = 1 and IsRecord(opts[1]) then
-        opts := opts[1];
+        opts := ShallowCopy(opts[1]);
         if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
     else
         ErrorNoReturn("only one optional argument allowed: ",
@@ -1175,8 +1175,20 @@ InstallGlobalFunction(MaximalSubgroupClassRepsSpecialLinearGroup,
 function(n, q, opts...)
     local maximalSubgroups, factorisation, p, e;
 
-    if Length(opts) = 0 then opts := rec(); else opts := opts[1]; fi;
-    if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
+    if Length(opts) = 0 then
+        opts := rec(classes := [1..9]);
+    elif Length(opts) = 1 and IsList(opts[1]) then
+        opts := rec(classes := ShallowCopy(opts[1]));
+    elif Length(opts) = 1 and IsRecord(opts[1]) then
+        opts := ShallowCopy(opts[1]);
+        if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
+    else
+        ErrorNoReturn("only one optional argument allowed: ",
+                      "must be a list or record");
+    fi;
+    if not IsSubset([1..9], opts.classes) then
+        ErrorNoReturn("<classes> must be a subset of [1..9]");
+    fi;
 
     maximalSubgroups := [];
 
@@ -2401,12 +2413,22 @@ end);
 
 InstallGlobalFunction(MaximalSubgroupClassRepsSpecialUnitaryGroup,
 function(n, q, opts...)
-    local maximalSubgroups, subfieldGroup, numberOfConjugates,
-    generatorGUMinusSU;
+    local maximalSubgroups;
 
-    if Length(opts) = 0 then opts := rec(); else opts := opts[1]; fi;
-    if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
-
+    if Length(opts) = 0 then
+        opts := rec(classes := [1..9]);
+    elif Length(opts) = 1 and IsList(opts[1]) then
+        opts := rec(classes := ShallowCopy(opts[1]));
+    elif Length(opts) = 1 and IsRecord(opts[1]) then
+        opts := ShallowCopy(opts[1]);
+        if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
+    else
+        ErrorNoReturn("only one optional argument allowed: ",
+                      "must be a list or record");
+    fi;
+    if not IsSubset([1..9], opts.classes) then
+        ErrorNoReturn("<classes> must be a subset of [1..9]");
+    fi;
 
     if n < 3 then
         Error("<n> must be at least 3 in case 'U' since",
@@ -2415,8 +2437,6 @@ function(n, q, opts...)
     if (n = 3 and q = 2) then
         Error("PSU(3, 2) is soluble");
     fi;
-
-    generatorGUMinusSU := GUMinusSU(n, q);
 
     maximalSubgroups := [];
 
@@ -3316,8 +3336,20 @@ InstallGlobalFunction(MaximalSubgroupClassRepsSymplecticGroup,
 function(n, q, opts...)
     local maximalSubgroups;
 
-    if Length(opts) = 0 then opts := rec(); else opts := opts[1]; fi;
-    if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
+    if Length(opts) = 0 then
+        opts := rec(classes := [1..9]);
+    elif Length(opts) = 1 and IsList(opts[1]) then
+        opts := rec(classes := ShallowCopy(opts[1]));
+    elif Length(opts) = 1 and IsRecord(opts[1]) then
+        opts := ShallowCopy(opts[1]);
+        if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
+    else
+        ErrorNoReturn("only one optional argument allowed: ",
+                      "must be a list or record");
+    fi;
+    if not IsSubset([1..9], opts.classes) then
+        ErrorNoReturn("<classes> must be a subset of [1..9]");
+    fi;
 
     if n < 4 then
         Error("<n> must be at least 4 in case 'S' since",
@@ -5219,8 +5251,20 @@ InstallGlobalFunction(MaximalSubgroupClassRepsOrthogonalGroup,
 function(epsilon, n, q, opts...)
     local maximalSubgroups;
 
-    if Length(opts) = 0 then opts := rec(); else opts := opts[1]; fi;
-    if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
+    if Length(opts) = 0 then
+        opts := rec(classes := [1..9]);
+    elif Length(opts) = 1 and IsList(opts[1]) then
+        opts := rec(classes := ShallowCopy(opts[1]));
+    elif Length(opts) = 1 and IsRecord(opts[1]) then
+        opts := ShallowCopy(opts[1]);
+        if not IsBound(opts.classes) then opts.classes := [1..9]; fi;
+    else
+        ErrorNoReturn("only one optional argument allowed: ",
+                      "must be a list or record");
+    fi;
+    if not IsSubset([1..9], opts.classes) then
+        ErrorNoReturn("<classes> must be a subset of [1..9]");
+    fi;
 
     if epsilon = 0 and IsEvenInt(n) then
         ErrorNoReturn("Degree must be odd for type 'O'");
